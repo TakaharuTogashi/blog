@@ -1,0 +1,19 @@
+p.notice = notice
+
+h1 記事一覧
+
+table
+  thead
+    tr
+      th タイトル
+
+  tbody
+    - @articles.each do |article|
+      tr
+        td = link_to "#{article.title}", article
+
+br
+
+= link_to '新規投稿', new_article_path
+
+= paginate @articles

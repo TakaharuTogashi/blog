@@ -1,0 +1,25 @@
+p.notice = notice
+
+p
+  strong タイトル:
+  = @article.title
+
+p
+  strong 本文:
+  = @article.text
+
+p
+  strong 作成:
+  = @article.created_at
+
+p
+  strong 更新:
+  = @article.updated_at
+
+= button_to '編集', edit_article_path(@article), method: :get
+= button_to '削除', article_path, method: :delete,
+  data: { confirm: '削除しますか？' }
+br
+= link_to '前の記事へ', @article.previous
+'  |
+= link_to '次の記事へ', @article.next
