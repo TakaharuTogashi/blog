@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>タイトル:</strong>
+  <%= @article.title %>
+</p>
+
+<p>
+  <strong>本文:</strong>
+  <%= @article.text %>
+</p>
+
+<p>
+  <strong>作成:</strong>
+  <%= @article.created_at %>
+</p>
+
+<p>
+  <strong>更新:</strong>
+  <%= @article.updated_at %>
+</p>
+
+<%= button_to '編集', edit_article_path(@article), method: :get %>
+<%= button_to '削除', article_path, method: :delete,
+  data: { confirm: '削除しますか？' } %>
+<br>
+<%= link_to '前の記事へ', @article.previous %> |
+<%= link_to '次の記事へ', @article.next %>
