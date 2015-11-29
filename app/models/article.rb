@@ -5,10 +5,10 @@ class Article < ActiveRecord::Base
     length: { maximum: 1000, too_long: '1000字以内で入力してください' }
 
   def previous
-    Article.where("id < ?", self.id).order("id DESC").first
+    Article.where("id > ?", self.id).order("id ASC").first
   end
 
   def next
-    Article.where("id > ?", self.id).order("id ASC").first
+    Article.where("id < ?", self.id).order("id DESC").first
   end
 end
